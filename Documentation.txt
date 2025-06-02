@@ -1,0 +1,51 @@
+3 Clean Code Practices Examples:
+
+1:
+    public void addGame(Game game)
+    This is clean code as it directly describes what it does in its own name.
+
+2:
+    void testCartTotal() {
+    cart.addGame(new Game("A", 10.0));
+    cart.addGame(new Game("B", 5.5));
+    assertEquals(15.5, cart.getTotal(), 0.001);
+    }
+    This is clean code because the tests are not excessively in depth and stays with a single responsibility.
+
+3: 
+    catalog = new ArrayList<>();
+    catalog.add(new Game("Elder Quest", 59.99));
+    catalog.add(new Game("Galaxy War", 39.99));
+    catalog.add(new Game("Mystic Lands", 49.99));
+    
+    Putting this into a list is clean code as it removes repetition that would be necessary otherwewise. 
+
+
+Project explanation:
+
+This is a Java application using Maven for dependency management that simulates a simple video game store.
+
+How it works:
+
+1: GameStore holds a catalog of games in stock.
+2: Cart adds, removes and lists games that the user is looking to purchase.
+3: Main runs the actual user interface where the user is prompted with options until they choose to Exit.
+
+
+Test cases:
+
+There are 7 test cases seperated across two files:
+
+CartTest:
+
+    testAddGame: Verifies adding a game to cart
+    testRemoveGame: Tests removing a game from the cart
+    testCartTotal: Checks the carts total price
+    testRemoveGameThatDoesNotExist: Makes sure the system does not crash if a nonexistent game is removed.
+
+GameStoreTest:
+
+    testPurchaseSuccess: Makes sure a purchase empties the cart if items are present
+    testPurchaseFailsOnEmptyCart: Checks that a purchase will fail on an empty cart
+    testBrowseGamesReturnsDefaultCatalog: makes sure that the games populate correctly
+    
